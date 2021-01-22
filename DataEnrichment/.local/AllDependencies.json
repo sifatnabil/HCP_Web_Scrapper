@@ -3526,9 +3526,9 @@
     "restore": {
       "projectUniqueName": "GoogleScholar",
       "projectName": "GoogleScholar",
-      "projectPath": "D:\\BS23 Training\\ML Team\\UiPath\\UiPath\\IQVIADataEnrichment\\.local",
+      "projectPath": "D:\\UiPath\\DataEnrichment\\.local",
       "packagesPath": "C:\\Users\\sifat\\.nuget\\packages\\",
-      "outputPath": "D:\\BS23 Training\\ML Team\\UiPath\\UiPath\\IQVIADataEnrichment\\.local"
+      "outputPath": "D:\\UiPath\\DataEnrichment\\.local"
     },
     "frameworks": {
       "net461": {
