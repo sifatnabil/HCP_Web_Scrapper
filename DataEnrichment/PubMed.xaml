@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1468,10439" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1468,10338" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="36">
       <x:String>System.Activities</x:String>
@@ -74,7 +74,7 @@
       <AssemblyReference>System.Text.Encodings.Web</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Pubmed_Scrap" sap:VirtualizedContainerService.HintSize="1478,10334" sap2010:WorkflowViewState.IdRef="Sequence_34">
+  <Sequence DisplayName="Pubmed_Scrap" sap:VirtualizedContainerService.HintSize="1478,10233" sap2010:WorkflowViewState.IdRef="Sequence_34">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
@@ -126,13 +126,13 @@
         <InArgument x:TypeArguments="x:Int32">2</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1436,9742" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1436,9641" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1386,9594" sap2010:WorkflowViewState.IdRef="Sequence_32">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1386,9493" sap2010:WorkflowViewState.IdRef="Sequence_32">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="first_name" />
               <Variable x:TypeArguments="x:String" Name="last_name" />
@@ -182,13 +182,13 @@
                 <InArgument x:TypeArguments="x:String">[String.Concat(temp, last_name)]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1344,9102" sap2010:WorkflowViewState.IdRef="OpenBrowser_4" Url="[pubmed_url]">
+            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1344,9001" sap2010:WorkflowViewState.IdRef="OpenBrowser_4" Url="[pubmed_url]">
               <ui:OpenBrowser.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1310,9001" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1310,8900" sap2010:WorkflowViewState.IdRef="Sequence_31">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="x:String" Name="ODT" />
                       <Variable x:TypeArguments="x:String" Name="article_url" />
@@ -454,7 +454,7 @@
                         <OutArgument x:TypeArguments="x:Int32">[match_ratio]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">70</InArgument>
+                        <InArgument x:TypeArguments="x:Int32">90</InArgument>
                       </Assign.Value>
                     </Assign>
                     <Assign sap:VirtualizedContainerService.HintSize="1268,60" sap2010:WorkflowViewState.IdRef="Assign_65">
@@ -483,13 +483,13 @@
                         </InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,5305" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ExtractDataTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="1268,5204" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                       <ui:ForEachRow.Body>
                         <ActivityAction x:TypeArguments="sd:DataRow">
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1085,5158" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1085,5057" sap2010:WorkflowViewState.IdRef="Sequence_30">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="outputFileName" />
                               <Variable x:TypeArguments="x:String" Name="article_title" />
@@ -532,13 +532,13 @@
                                 <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1043,4719" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" Url="[article_url]">
+                            <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="1043,4618" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" Url="[article_url]">
                               <ui:OpenBrowser.Body>
                                 <ActivityAction x:TypeArguments="x:Object">
                                   <ActivityAction.Argument>
                                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                                   </ActivityAction.Argument>
-                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1009,4618" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1009,4517" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="sd:DataTable" Name="authors_list_table" />
                                       <Variable x:TypeArguments="x:String" Name="authors_output" />
@@ -613,21 +613,21 @@
                                         </Sequence>
                                       </ui:CommentOut.Body>
                                     </ui:CommentOut>
-                                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[authors_list_table]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="967,1732" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
+                                    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[authors_list_table]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="967,1631" sap2010:WorkflowViewState.IdRef="ForEachRow_5">
                                       <ui:ForEachRow.Body>
                                         <ActivityAction x:TypeArguments="sd:DataRow">
                                           <ActivityAction.Argument>
                                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="917,1585" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="917,1484" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <If Condition="[FuzzySharp.Fuzz.Ratio(row.item(0).ToString, full_name) &gt; match_ratio]" sap:VirtualizedContainerService.HintSize="875,1493" sap2010:WorkflowViewState.IdRef="If_6">
+                                            <If Condition="[FuzzySharp.Fuzz.Ratio(row.item(0).ToString, full_name) &gt; match_ratio]" sap:VirtualizedContainerService.HintSize="875,1392" sap2010:WorkflowViewState.IdRef="If_6">
                                               <If.Then>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="526,1346" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                                <Sequence sap:VirtualizedContainerService.HintSize="526,1245" sap2010:WorkflowViewState.IdRef="Sequence_37">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -689,7 +689,6 @@
                                                       <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                                     </Assign.Value>
                                                   </Assign>
-                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="484,61" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="[article_abstract_cleaned]" />
                                                   <If Condition="[found_ratio &gt; max]" sap:VirtualizedContainerService.HintSize="484,399" sap2010:WorkflowViewState.IdRef="If_10">
                                                     <If.Then>
                                                       <Sequence sap:VirtualizedContainerService.HintSize="304,252" sap2010:WorkflowViewState.IdRef="Sequence_43">
@@ -774,11 +773,11 @@
                                         <OutArgument x:TypeArguments="x:String">[outputFileName]</OutArgument>
                                       </Assign.To>
                                       <Assign.Value>
-                                        <InArgument x:TypeArguments="x:String">["../" + temp_full_name + "/" + "pubmed_" + temp_first_name + "_" + temp_last_name + ".xlsx"]</InArgument>
+                                        <InArgument x:TypeArguments="x:String">["../Results/" + temp_full_name + "/" + "pubmed_" + temp_first_name + "_" + temp_last_name + ".xlsx"]</InArgument>
                                       </Assign.Value>
                                     </Assign>
                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="967,61" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="[outputFileName]" />
-                                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="967,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;../&quot; + temp_full_name]" />
+                                    <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="967,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;../Results/&quot; + temp_full_name]" />
                                     <If Condition="[article_found]" sap:VirtualizedContainerService.HintSize="967,846" sap2010:WorkflowViewState.IdRef="If_7">
                                       <If.Then>
                                         <Sequence sap:VirtualizedContainerService.HintSize="494,699" sap2010:WorkflowViewState.IdRef="Sequence_49">

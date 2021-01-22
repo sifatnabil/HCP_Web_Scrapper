@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="TrialsJournals" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1478,8346" sap2010:WorkflowViewState.IdRef="TrialsJournals_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="TrialsJournals" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1478,8245" sap2010:WorkflowViewState.IdRef="TrialsJournals_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="30">
       <x:String>System.Activities</x:String>
@@ -66,7 +66,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="TrialsJournals" sap:VirtualizedContainerService.HintSize="1488,8241" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="TrialsJournals" sap:VirtualizedContainerService.HintSize="1488,8140" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="hcpTable" />
       <Variable x:TypeArguments="x:String" Name="trialsjournal_url" />
@@ -125,13 +125,13 @@
         <InArgument x:TypeArguments="x:Int32">2</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[hcpTable]" DisplayName="For Each Row (Traverse the HCP List)" sap:VirtualizedContainerService.HintSize="1446,7549" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[hcpTable]" DisplayName="For Each Row (Traverse the HCP List)" sap:VirtualizedContainerService.HintSize="1446,7448" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1396,7401" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1396,7300" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="first_name" />
               <Variable x:TypeArguments="x:String" Name="first_name_cleaned" />
@@ -299,15 +299,15 @@
                 </ActivityAction>
               </ui:OpenBrowser.Body>
             </ui:OpenBrowser>
-            <If Condition="[not articleListTable is Nothing]" sap:VirtualizedContainerService.HintSize="1354,1790" sap2010:WorkflowViewState.IdRef="If_2">
+            <If Condition="[not articleListTable is Nothing]" sap:VirtualizedContainerService.HintSize="1354,1689" sap2010:WorkflowViewState.IdRef="If_2">
               <If.Then>
-                <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[articleListTable]" DisplayName="For Each Row (Hit each link grab the authors and match them)" sap:VirtualizedContainerService.HintSize="744,1642" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[articleListTable]" DisplayName="For Each Row (Hit each link grab the authors and match them)" sap:VirtualizedContainerService.HintSize="744,1541" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                   <ui:ForEachRow.Body>
                     <ActivityAction x:TypeArguments="sd:DataRow">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="sd:DataRow" Name="a" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="694,1494" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="694,1393" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="x:String" Name="articleTitle" />
                           <Variable x:TypeArguments="x:String" Name="articleUrl" />
@@ -333,13 +333,13 @@
                             <InArgument x:TypeArguments="x:String">[trialsjournal_url + a.item(1).ToString]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="652,1202" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[articleUrl]">
+                        <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="652,1101" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="[articleUrl]">
                           <ui:OpenBrowser.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="618,1101" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="618,1000" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                 <Sequence.Variables>
                                   <Variable x:TypeArguments="sd:DataTable" Name="authorList" />
                                 </Sequence.Variables>
@@ -358,7 +358,6 @@
                                   </ui:ExtractData.Target>
                                 </ui:ExtractData>
                                 <ui:OutputDataTable DataTable="[authorList]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="576,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[ODT]" />
-                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="576,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[ODT]" />
                                 <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[authorList]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="576,638" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                                   <ui:ForEachRow.Body>
                                     <ActivityAction x:TypeArguments="sd:DataRow">
