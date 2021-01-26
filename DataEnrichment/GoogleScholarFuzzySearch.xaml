@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="FuzzySearch" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1246,11635" sap2010:WorkflowViewState.IdRef="FuzzySearch_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="FuzzySearch" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1130,13934" sap2010:WorkflowViewState.IdRef="FuzzySearch_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
       <x:String>System.Activities</x:String>
@@ -68,7 +68,7 @@
       <AssemblyReference>FuzzySharp</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="FuzzySearchExample" sap:VirtualizedContainerService.HintSize="873,11530" sap2010:WorkflowViewState.IdRef="Sequence_6">
+  <Sequence DisplayName="FuzzySearchExample" sap:VirtualizedContainerService.HintSize="873,13829" sap2010:WorkflowViewState.IdRef="Sequence_6">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
       <Variable x:TypeArguments="x:String" Name="got_name" />
@@ -102,7 +102,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Google_scholar" sap:VirtualizedContainerService.HintSize="831,11438" sap2010:WorkflowViewState.IdRef="Sequence_13">
+    <Sequence DisplayName="Google_scholar" sap:VirtualizedContainerService.HintSize="831,13737" sap2010:WorkflowViewState.IdRef="Sequence_13">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="DT1" />
         <Variable x:TypeArguments="x:String" Name="got_name" />
@@ -161,13 +161,13 @@
         </Assign.Value>
       </Assign>
       <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="789,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="../Results" />
-      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="789,10827" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[DT1]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="789,13126" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="739,10679" sap2010:WorkflowViewState.IdRef="Sequence_12">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="739,12978" sap2010:WorkflowViewState.IdRef="Sequence_12">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:String" Name="first_name" />
                 <Variable x:TypeArguments="x:String" Name="last_name" />
@@ -180,6 +180,7 @@
                 <Variable x:TypeArguments="x:String" Name="temp_first_name" />
                 <Variable x:TypeArguments="x:String" Name="temp_last_name" />
                 <Variable x:TypeArguments="x:String" Name="temp_full_name" />
+                <Variable x:TypeArguments="sd:DataTable" Name="DescriptionTable" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -269,19 +270,19 @@
                   </ActivityAction>
                 </ui:ExcelApplicationScope.Body>
               </ui:ExcelApplicationScope>
-              <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="697,5798" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="https://scholar.google.com/citations?view_op=search_authors">
+              <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="697,7942" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" Url="https://scholar.google.com/citations?view_op=search_authors">
                 <ui:OpenBrowser.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="663,5697" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="663,7841" sap2010:WorkflowViewState.IdRef="Sequence_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:SetValue AlterIfDisabled="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" ContinueOnError="True" DisplayName="Set Text 'INPUT  gs_hdr_tsi'" sap:VirtualizedContainerService.HintSize="621,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="[last_name]">
+                      <ui:SetValue AlterIfDisabled="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" ContinueOnError="True" DisplayName="Set Text 'INPUT  gs_hdr_tsi'" sap:VirtualizedContainerService.HintSize="621,134" sap2010:WorkflowViewState.IdRef="SetValue_2" Text="Karsten Voigt">
                         <ui:SetValue.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c4a461ce-d52b-4bcc-974a-5dae138e1d77" InformativeScreenshot="ea6b6c2f69ef0a2c3123f0d26dec0523" Selector="&lt;webctrl tag='INPUT' type='text' /&gt;">
                             <ui:Target.TimeoutMS>
@@ -502,19 +503,27 @@
                           </Assign>
                         </If.Else>
                       </If>
-                      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="621,1995" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" Url="[url]">
+                      <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" ContinueOnError="True" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="621,4139" sap2010:WorkflowViewState.IdRef="OpenBrowser_3" Url="[url]">
                         <ui:OpenBrowser.Body>
                           <ActivityAction x:TypeArguments="x:Object">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                             </ActivityAction.Argument>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1894" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="570,4038" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="x:String" Name="ODT" />
+                                <Variable x:TypeArguments="sd:DataTable" Name="TitleTable" />
+                                <Variable x:TypeArguments="x:String" Name="pages" />
+                                <Variable x:TypeArguments="x:String" Name="publisher" />
+                                <Variable x:TypeArguments="x:String" Name="description" />
+                                <Variable x:TypeArguments="x:String" Name="tableDescription" />
+                              </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV  gsc_prf_in'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_15">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV  gsc_prf_in'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_15">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="348f0a09-9d1c-4928-a67a-6fdbc1252a84" InformativeScreenshot="aed8de368e81cc4bf89ffefa04d89e1c" Selector="&lt;webctrl id='gsc_prf_in' tag='DIV' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -529,7 +538,7 @@
                                   <OutArgument x:TypeArguments="x:String">[found_name]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_16">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_16">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e741f6da-dab9-42e6-982e-593ba3800b02" InformativeScreenshot="119a84d6dbdab8094ff7a87633ff08e9" Selector="&lt;webctrl idx='2' parentid='gsc_prf_i' tag='DIV' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -544,7 +553,7 @@
                                   <OutArgument x:TypeArguments="x:String">[workplace]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV  gsc_prf_ivh'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_17">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV  gsc_prf_ivh'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_17">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="37899ef2-3bc0-4313-8af7-abc828abc818" InformativeScreenshot="21b8c99d2aeed2ffb92c33f5ab05a762" Selector="&lt;webctrl id='gsc_prf_ivh' tag='DIV' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -559,7 +568,7 @@
                                   <OutArgument x:TypeArguments="x:String">[email]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV  gsc_prf_int'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_18">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV  gsc_prf_int'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_18">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6671892f-3f4b-45b6-9a27-4d67be643a3a" InformativeScreenshot="4bbc371629f971a6e3a188ce1533c219" Selector="&lt;webctrl id='gsc_prf_int' tag='DIV' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -574,7 +583,7 @@
                                   <OutArgument x:TypeArguments="x:String">[research_area]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:GetAttribute Attribute="src" ContinueOnError="True" DisplayName="Get Attribute 'IMG  gsc_prf_pup-img'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
+                              <ui:GetAttribute Attribute="src" ContinueOnError="True" DisplayName="Get Attribute 'IMG  gsc_prf_pup-img'" sap:VirtualizedContainerService.HintSize="528,134" sap2010:WorkflowViewState.IdRef="GetAttribute_3">
                                 <ui:GetAttribute.Result>
                                   <OutArgument x:TypeArguments="x:String">[image]</OutArgument>
                                 </ui:GetAttribute.Result>
@@ -589,7 +598,7 @@
                                   </ui:Target>
                                 </ui:GetAttribute.Target>
                               </ui:GetAttribute>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_19">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'TD'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_19">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="945c06ea-bbe5-4cea-ac89-d0a684e23054" InformativeScreenshot="b7badd3fe50c109a5e39a528ad7b2828" Selector="&lt;webctrl id='gsc_rsb_st' tag='TABLE' /&gt;&lt;webctrl idx='1' isleaf='1' tag='TD' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -604,7 +613,7 @@
                                   <OutArgument x:TypeArguments="x:String">[citation]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_20">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'TD'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_20">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="91344f7b-8824-49cc-8792-9715e2557be2" InformativeScreenshot="e6803daefb6676a0087eee47c1912d63" Selector="&lt;webctrl id='gsc_rsb_st' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='2' tableRow='3' tag='TD' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -619,7 +628,7 @@
                                   <OutArgument x:TypeArguments="x:String">[hindex]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'TD'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetFullText_21">
+                              <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'TD'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="GetFullText_21">
                                 <ui:GetFullText.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="69755130-bf18-4217-8a20-e3639c88af0e" InformativeScreenshot="23df9d43d37a4d1826ba537c7e901a33" Selector="&lt;webctrl id='gsc_rsb_st' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='2' tableRow='4' tag='TD' /&gt;">
                                     <ui:Target.TimeoutMS>
@@ -634,7 +643,37 @@
                                   <OutArgument x:TypeArguments="x:String">[i10index]</OutArgument>
                                 </ui:GetFullText.Text>
                               </ui:GetFullText>
-                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'TABLE  gsc_a_t'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_12" MaxNumberOfResults="100" NextLinkSelector="&lt;webctrl aaname='Show more' parentid='gsc_bpf_more' tag='SPAN' /&gt;" SimulateClick="True">
+                              <Assign sap:VirtualizedContainerService.HintSize="528,60" sap2010:WorkflowViewState.IdRef="Assign_45">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[pages]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="528,60" sap2010:WorkflowViewState.IdRef="Assign_46">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[publisher]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="528,60" sap2010:WorkflowViewState.IdRef="Assign_47">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[description]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">
+                                    <Literal x:TypeArguments="x:String" Value="" />
+                                  </InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DisplayName="Extract Structured Data 'TABLE  gsc_a_t'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest' /&gt;" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="ExtractData_12" MaxNumberOfResults="100" NextLinkSelector="&lt;webctrl aaname='Show more' parentid='gsc_bpf_more' tag='SPAN' /&gt;" SimulateClick="True">
                                 <ui:ExtractData.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e94c3866-1bfa-4698-8db9-f3e74e0e44f8" InformativeScreenshot="3c72280fe004699d66b6b4258c50249b" Selector="&lt;webctrl id='gsc_a_t' tag='TABLE' /&gt;" WaitForReady="COMPLETE">
                                     <ui:Target.TimeoutMS>
@@ -643,7 +682,7 @@
                                   </ui:Target>
                                 </ui:ExtractData.Target>
                               </ui:ExtractData>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" ContinueOnError="True" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -665,7 +704,138 @@
                                   </ui:Target>
                                 </ui:Click.Target>
                               </ui:Click>
-                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[author_list]" DisplayName="Extract Structured Data 'DIV  gsc_codb_content'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='div'/&gt;&lt;webctrl tag='div' idx='2'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='h3' idx='1'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_10" MaxNumberOfResults="100" SimulateClick="True">
+                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" ContinueOnError="True" DataTable="[TitleTable]" DisplayName="Extract Structured Data 'TBODY  gsc_a_b'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='tr'/&gt;&lt;webctrl tag='td' idx='1'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="ExtractData_13" MaxNumberOfResults="100" NextLinkSelector="&lt;webctrl aaname='Show more' parentid='gsc_bpf_more' tag='SPAN' /&gt;" SimulateClick="True">
+                                <ui:ExtractData.Target>
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="19346d0e-a15a-4425-9920-f511080f2d82" InformativeScreenshot="c1719a56a042d3baed46d431e3be6da7" Selector="&lt;html app='chrome.exe' title='‪* - ‪Google Scholar‬' /&gt;&lt;webctrl id='gsc_a_b' tag='TBODY' /&gt;" WaitForReady="COMPLETE">
+                                    <ui:Target.TimeoutMS>
+                                      <InArgument x:TypeArguments="x:Int32" />
+                                    </ui:Target.TimeoutMS>
+                                  </ui:Target>
+                                </ui:ExtractData.Target>
+                              </ui:ExtractData>
+                              <ui:BuildDataTable DataTable="[DescriptionTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="528,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Column1&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+                              <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[TitleTable]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="528,1295" sap2010:WorkflowViewState.IdRef="ForEachRow_4">
+                                <ui:ForEachRow.Body>
+                                  <ActivityAction x:TypeArguments="sd:DataRow">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sd:DataRow" Name="t" />
+                                    </ActivityAction.Argument>
+                                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="478,1148" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="x:String" Name="title" />
+                                        <Variable x:TypeArguments="x:Boolean" Name="nameExists" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_44">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[title]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">[t.item(0).ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" sap:VirtualizedContainerService.HintSize="436,68" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                        <ui:Click.CursorPosition>
+                                          <ui:CursorPosition Position="Center">
+                                            <ui:CursorPosition.OffsetX>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetX>
+                                            <ui:CursorPosition.OffsetY>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetY>
+                                          </ui:CursorPosition>
+                                        </ui:Click.CursorPosition>
+                                        <ui:Click.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="c6278edb-b2c6-42da-8baa-2c679aaa07e3" Selector="&lt;html app='chrome.exe' title='‪* - ‪Google Scholar‬' /&gt;&lt;webctrl aaname='{{title}}*' parentid='gsc_a_b' tag='A' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:Click.Target>
+                                      </ui:Click>
+                                      <Assign sap:VirtualizedContainerService.HintSize="436,60" sap2010:WorkflowViewState.IdRef="Assign_48">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:String">[description]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">
+                                            <Literal x:TypeArguments="x:String" Value="" />
+                                          </InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="Delay_4" />
+                                      <ui:GetFullText IgnoreHidden="{x:Null}" ContinueOnError="True" DisplayName="Get Full Text 'DIV'" sap:VirtualizedContainerService.HintSize="436,106" sap2010:WorkflowViewState.IdRef="GetFullText_24">
+                                        <ui:GetFullText.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="fba2b4fd-5571-4386-b30a-ecc14d1e8580" InformativeScreenshot="8ac60b978daede85e30f6271508b05f8" Selector="&lt;html app='chrome.exe' title='‪Karsten Voigt‬ - ‪Google Scholar‬' /&gt;&lt;webctrl class='gsh_*' parentid='gsc_vcd_descr' tag='DIV' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:GetFullText.Target>
+                                        <ui:GetFullText.Text>
+                                          <OutArgument x:TypeArguments="x:String">[description]</OutArgument>
+                                        </ui:GetFullText.Text>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:GetFullText>
+                                      <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="436,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                        <ui:Click.CursorPosition>
+                                          <ui:CursorPosition Position="Center">
+                                            <ui:CursorPosition.OffsetX>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetX>
+                                            <ui:CursorPosition.OffsetY>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:CursorPosition.OffsetY>
+                                          </ui:CursorPosition>
+                                        </ui:Click.CursorPosition>
+                                        <ui:Click.Target>
+                                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ca2e4cd1-eba6-4135-83e3-e41dcb47581b" InformativeScreenshot="52358567fa36b2fbef55a60d20d39329" Selector="&lt;webctrl idx='1' parentid='gs_md_cita-d-x' tag='SPAN' /&gt;">
+                                            <ui:Target.TimeoutMS>
+                                              <InArgument x:TypeArguments="x:Int32" />
+                                            </ui:Target.TimeoutMS>
+                                            <ui:Target.WaitForReady>
+                                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                                            </ui:Target.WaitForReady>
+                                          </ui:Target>
+                                        </ui:Click.Target>
+                                      </ui:Click>
+                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{description}]" DataTable="[DescriptionTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="436,22" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="436,61" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[&quot;Title: &quot; + title + &quot; Description: &quot; + description]" />
+                                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,231" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                                        <ui:CommentOut.Body>
+                                          <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="272,153" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="230,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[nameExists.ToString + &quot;for: &quot; + t]" />
+                                          </Sequence>
+                                        </ui:CommentOut.Body>
+                                      </ui:CommentOut>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </ui:ForEachRow.Body>
+                              </ui:ForEachRow>
+                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="528,61" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Table banano shesh" />
+                              <ui:OutputDataTable DataTable="[DescriptionTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="528,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[ODT]" />
+                              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="528,61" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[ODT]" />
+                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[author_list]" DisplayName="Extract Structured Data 'DIV  gsc_codb_content'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='div'/&gt;&lt;webctrl tag='div' idx='2'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='h3' idx='1'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="ExtractData_10" MaxNumberOfResults="100" SimulateClick="True">
                                 <ui:ExtractData.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="28ca52a5-4c5b-48aa-8a0e-1dc59ebb3224" InformativeScreenshot="f9cf0125c0bf5fd71aaf7a419ae56e7a" Selector="&lt;webctrl id='gsc_codb_content' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                                     <ui:Target.TimeoutMS>
@@ -674,7 +844,7 @@
                                   </ui:Target>
                                 </ui:ExtractData.Target>
                               </ui:ExtractData>
-                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[designation]" DisplayName="Extract Structured Data 'DIV  gsc_codb_content'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='div'/&gt;&lt;webctrl tag='div' idx='2'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="ExtractData_11" MaxNumberOfResults="100" SimulateClick="True">
+                              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[designation]" DisplayName="Extract Structured Data 'DIV  gsc_codb_content'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='div'/&gt;&lt;webctrl tag='div' idx='2'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="528,106" sap2010:WorkflowViewState.IdRef="ExtractData_11" MaxNumberOfResults="100" SimulateClick="True">
                                 <ui:ExtractData.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="87b6fdb1-5021-4f50-a3c7-e6d73bb5c0b3" InformativeScreenshot="173381900934025a2470be92c844003a" Selector="&lt;webctrl id='gsc_codb_content' tag='DIV' /&gt;" WaitForReady="COMPLETE">
                                     <ui:Target.TimeoutMS>
@@ -683,7 +853,7 @@
                                   </ui:Target>
                                 </ui:ExtractData.Target>
                               </ui:ExtractData>
-                              <ui:CloseTab Browser="{x:Null}" ContinueOnError="True" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="CloseTab_3" />
+                              <ui:CloseTab Browser="{x:Null}" ContinueOnError="True" DisplayName="Close Tab" sap:VirtualizedContainerService.HintSize="528,22" sap2010:WorkflowViewState.IdRef="CloseTab_3" />
                             </Sequence>
                           </ActivityAction>
                         </ui:OpenBrowser.Body>
@@ -753,6 +923,7 @@
                 </Assign.Value>
               </Assign>
               <ui:WriteRange AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="697,115" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Articles List" StartingCell="A1" WorkbookPath="[outputFile]" />
+              <ui:WriteRange AddHeaders="False" DataTable="[DescriptionTable]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="697,115" sap2010:WorkflowViewState.IdRef="WriteRange_7" SheetName="Articles List" StartingCell="D1" WorkbookPath="[outputFile]" />
               <ui:WriteRange AddHeaders="False" DataTable="[author_list]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="697,115" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="Co-authors List" StartingCell="A1" WorkbookPath="[outputFile]" />
               <ui:WriteRange AddHeaders="False" DataTable="[designation]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="697,115" sap2010:WorkflowViewState.IdRef="WriteRange_6" SheetName="Co-authors List" StartingCell="B1" WorkbookPath="[outputFile]" />
               <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="697,415" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_7" InstanceCachePeriod="3000" WorkbookPath="../Results/result.xlsx">
