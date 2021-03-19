@@ -3520,15 +3520,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sifat\\.nuget\\packages\\": {}
+    "C:\\Users\\BS542\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "GoogleScholar",
       "projectName": "GoogleScholar",
-      "projectPath": "D:\\UiPath\\DataEnrichment\\.local",
-      "packagesPath": "C:\\Users\\sifat\\.nuget\\packages\\",
-      "outputPath": "D:\\UiPath\\DataEnrichment\\.local"
+      "projectPath": "C:\\Sifat Nabil\\UIPath Scrappers\\HCP_Web_Scrapper\\DataEnrichment\\.local",
+      "packagesPath": "C:\\Users\\BS542\\.nuget\\packages\\",
+      "outputPath": "C:\\Sifat Nabil\\UIPath Scrappers\\HCP_Web_Scrapper\\DataEnrichment\\.local"
     },
     "frameworks": {
       "net461": {
@@ -3561,5 +3561,14 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU3034",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'FuzzySharp 2.0.2' from source 'https://api.nuget.org/v3/index.json': This package is signed but not by a trusted signer.",
+      "libraryId": "FuzzySharp"
+    }
+  ]
 }
