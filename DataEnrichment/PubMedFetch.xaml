@@ -1,0 +1,375 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="PubMedFetch" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="articleAvailable" Type="InArgument(x:Boolean)" />
+    <x:Property Name="articleUrl" Type="OutArgument(x:String)" />
+    <x:Property Name="foundUrl" Type="InArgument(x:String)" />
+    <x:Property Name="articleTitle" Type="InOutArgument(x:String)" />
+    <x:Property Name="articleAbstract" Type="InOutArgument(x:String)" />
+    <x:Property Name="pubmedId" Type="InOutArgument(x:String)" />
+    <x:Property Name="publicationDate" Type="InOutArgument(x:String)" />
+    <x:Property Name="authorsTable" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="citationCount" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="coAuthors" Type="InOutArgument(x:String)" />
+    <x:Property Name="fullname" Type="InArgument(x:String)" />
+    <x:Property Name="affliations" Type="InOutArgument(x:String)" />
+    <x:Property Name="outputFileName" Type="InArgument(x:String)" />
+    <x:Property Name="counter" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="pubmedUrl" Type="InArgument(x:String)" />
+    <x:Property Name="maxMatchedName" Type="InArgument(x:String)" />
+    <x:Property Name="resultCounter" Type="InArgument(x:Int32)" />
+    <x:Property Name="maxMatchedRatio" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>1487,4750</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="28">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="33">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.CV.Activities</AssemblyReference>
+      <AssemblyReference>FuzzySharp</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <If Condition="[articleAvailable]" DisplayName="If criteria matched, we fetch details" sap:VirtualizedContainerService.HintSize="1497,4685" sap2010:WorkflowViewState.IdRef="If_6">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If.Then>
+      <Sequence sap:VirtualizedContainerService.HintSize="1018,4537" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="sd:DataTable" Name="articleAbstractTable" />
+          <Variable x:TypeArguments="sd:DataTable" Name="affliationsTable" />
+          <Variable x:TypeArguments="x:String" Name="authorTableODT" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Delay Duration="00:00:03" sap:VirtualizedContainerService.HintSize="976,22" sap2010:WorkflowViewState.IdRef="Delay_1" />
+        <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[authorsTable]" DisplayName="Get the all the author names" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='authors' attr='text'&gt;&lt;webctrl tag='div' idx='2'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='div' idx='1'/&gt;&lt;webctrl tag='span'/&gt;&lt;webctrl tag='a' idx='1'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="976,106" sap2010:WorkflowViewState.IdRef="ExtractData_5" MaxNumberOfResults="0" SimulateClick="True">
+          <ui:ExtractData.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5cedd53d-8a47-496d-8349-e76acbba51ea" InformativeScreenshot="ecf7b975ff973219f1fa750af04e43e2" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl id='full-view-heading' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+              <ui:Target.TimeoutMS>
+                <InArgument x:TypeArguments="x:Int32" />
+              </ui:Target.TimeoutMS>
+            </ui:Target>
+          </ui:ExtractData.Target>
+        </ui:ExtractData>
+        <ui:OutputDataTable DataTable="[authorsTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="976,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_3" Text="[authorTableODT]" />
+        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="976,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[authorTableODT]" />
+        <If Condition="[authorTableODT.Contains(maxMatchedName)]" sap:VirtualizedContainerService.HintSize="976,4074" sap2010:WorkflowViewState.IdRef="If_7">
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="831,3926" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign Article Url" sap:VirtualizedContainerService.HintSize="789,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[articleUrl]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[foundUrl]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Article Title" sap:VirtualizedContainerService.HintSize="789,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b4b4119a-1d2b-4539-8377-09041109a32f" InformativeScreenshot="3cb0adc3dd74fbba07a66855038da43d" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl parentid='full-view-heading' tag='H1' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:String">[articleTitle]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[articleAbstractTable]" DisplayName="Extract Structured Data 'DIV  enc-abstract'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='abstract' attr='text'&gt;&lt;webctrl tag='p'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="789,106" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="0" SimulateClick="True">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="15780f41-2262-4740-8939-eac8375b1a10" InformativeScreenshot="7e148e132b287ad728a971eeeecdfb16" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl id='enc-abstract' tag='DIV' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+              <ui:OutputDataTable DataTable="[articleAbstractTable]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="789,22" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[articleAbstract]" />
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'STRONG'" sap:VirtualizedContainerService.HintSize="789,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4dc8b440-c53a-44dd-9eb4-3817f3014b73" InformativeScreenshot="2d45a9bf0bc93a738696c32e1ab8935e" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl parentid='full-view-identifiers' tag='STRONG' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:String">[pubmedId]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'SPAN'" sap:VirtualizedContainerService.HintSize="789,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="bef0b0fa-0a64-434f-a73c-5042d4c16ab9" InformativeScreenshot="f1d9ee8024cded485fe9b04c340f03fc" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl parentid='full-view-heading' tag='SPAN' class='cit' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:String">[publicationDate]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'EM'" sap:VirtualizedContainerService.HintSize="789,106" sap2010:WorkflowViewState.IdRef="GetValue_4">
+                <ui:GetValue.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6aa36a14-e3fb-4bf9-9a5e-810fc07ee7b7" InformativeScreenshot="efbb2fc9dc8ce8783047cd420ff3e8b8" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl idx='1' parentid='citedby' tag='EM' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:GetValue.Target>
+                <ui:GetValue.Value>
+                  <OutArgument x:TypeArguments="x:Int32">[citationCount]</OutArgument>
+                </ui:GetValue.Value>
+              </ui:GetValue>
+              <ui:ExtractData DelayBetweenPagesMS="{x:Null}" NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[affliationsTable]" DisplayName="Extract Structured Data 'UL'" ExtractMetadata="&lt;extract&gt;&lt;column exact='1' name='Column1' attr='text'&gt;&lt;webctrl tag='li'/&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="789,106" sap2010:WorkflowViewState.IdRef="ExtractData_4" MaxNumberOfResults="0" SimulateClick="True">
+                <ui:ExtractData.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5cf62991-632b-4951-8450-551d357df6f4" InformativeScreenshot="0f8cd0ca1698917cef97f70b1b096845" Selector="&lt;html app='chrome.exe' title='.* - PubMed' matching:title='regex' /&gt;&lt;webctrl parentid='full-view-expanded-authors' tag='UL' /&gt;" WaitForReady="COMPLETE">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                  </ui:Target>
+                </ui:ExtractData.Target>
+              </ui:ExtractData>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="789,315" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[coAuthors]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[String.Join(","c,authorsTable.AsEnumerable().Select(function(x) x.Field(Of String)("authors")).ToArray())]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[coAuthors]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(coAuthors, fullname + ",", "")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[coAuthors]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(coAuthors,"," + fullname, "")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[publicationDate]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[publicationDate.Substring(0, 11)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[articleTitle]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[articleTitle.Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[articleAbstract]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[string.join(Environment.NewLine, articleAbstractTable.Rows.Cast(of DataRow).Select(function(row) string.Join(",",row.itemArray)))]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[affliations]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[string.join(Environment.NewLine, affliationsTable.Rows.Cast(of DataRow).Select(function(row) string.Join(",",row.itemArray)))]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[affliations]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(affliations, "(\d+)(\n)", "$1. ")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="789,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[&quot;../Results/&quot; + fullname]" />
+              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="789,1339" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[outputFileName]">
+                <ui:ExcelApplicationScope.Body>
+                  <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1230" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelWriteCell Cell="[&quot;A&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[articleTitle]" />
+                      <ui:ExcelWriteCell Cell="[&quot;B&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[articleAbstract]" />
+                      <ui:ExcelWriteCell Cell="[&quot;C&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="Sheet1" Text="[citationCount.ToString]" />
+                      <ui:ExcelWriteCell Cell="[&quot;D&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[publicationDate]" />
+                      <ui:ExcelWriteCell Cell="[&quot;E&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet1" Text="[pubmedId]" />
+                      <ui:ExcelWriteCell Cell="[&quot;F&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="Sheet1" Text="[pubmedUrl]" />
+                      <ui:ExcelWriteCell Cell="[&quot;G&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="Sheet1" Text="[coAuthors]" />
+                      <ui:ExcelWriteCell Cell="[&quot;H&quot; + counter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="Sheet1" Text="[affliations]" />
+                      <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[counter + 1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:ClearDataTable DataTable="[authorsTable]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ClearDataTable_2" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ExcelApplicationScope.Body>
+              </ui:ExcelApplicationScope>
+              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="789,943" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="../Results/result.xlsx">
+                <ui:ExcelApplicationScope.Body>
+                  <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="755,834" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelWriteCell Cell="[&quot;F&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="Dashboard" Text="Found" />
+                      <ui:ExcelWriteCell Cell="[&quot;G&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="Dashboard" Text="[maxMatchedRatio.ToString]" />
+                      <ui:ExcelWriteCell Cell="[&quot;A&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_13" SheetName="PubMed" Text="[fullname]" />
+                      <ui:ExcelWriteCell Cell="[&quot;B&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="713,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_14" SheetName="PubMed" Text="[maxMatchedName]" />
+                      <If Condition="[maxMatchedRatio = 100]" sap:VirtualizedContainerService.HintSize="713,234" sap2010:WorkflowViewState.IdRef="If_8">
+                        <If.Then>
+                          <ui:ExcelWriteCell Cell="[&quot;C&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_15" SheetName="PubMed" Text="Yes" />
+                        </If.Then>
+                        <If.Else>
+                          <ui:ExcelWriteCell Cell="[&quot;C&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_16" SheetName="PubMed" Text="No" />
+                        </If.Else>
+                      </If>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ExcelApplicationScope.Body>
+              </ui:ExcelApplicationScope>
+            </Sequence>
+          </If.Then>
+        </If>
+      </Sequence>
+    </If.Then>
+    <If.Else>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="../Results/result.xlsx">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ExcelWriteCell Cell="[&quot;F&quot; + resultCounter.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_11" SheetName="Dashboard" Text="Not Found" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+      </ui:ExcelApplicationScope>
+    </If.Else>
+  </If>
+</Activity>
